@@ -14,7 +14,7 @@ REDIS_URL=os.getenv("REDIS_URL", '')
 
 def current_milli_time():
     return round(time.time() * 1000)
-print("SStarting app")
+print("Starting web server")
 app = FastAPI()
 
 url = urlparse(REDIS_URL)
