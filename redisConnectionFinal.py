@@ -28,7 +28,7 @@ SEC_KEY=os.getenv("SEC_KEY", 'DEFAULT_KEY')
 REDIS_URL=os.getenv("REDIS_URL", '')
 
 payload = json.dumps({
-  "key": "GwY(JSh7S!",
+  "key": SEC_KEY,
   "data": {
     "strategy-order-action": "buy",
     "strategy-order-price": 1.1234,
