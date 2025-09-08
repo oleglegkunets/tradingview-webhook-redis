@@ -11,12 +11,9 @@ COPY ./requirements.txt /app/requirements.txt
 RUN pip install -r requirements.txt
 
 COPY app.py /app/app.py
-#COPY ca.crt /app/ca.crt
-#RUN  chmod 644 /etc/redis/tls/ca.crt
 
+RUN mkdir -p /app/ssl
 COPY ca.crt /app/ssl/ca.crt
-#COPY redis.crt /app/ssl/redis.crt
-#COPY redis.key /app/ssl/redis.key
-RUN mkdir -p /app/ssl && chmod 644 /app/ssl/*.crt
 
+RUN chmod 644 /app/ssl/*.crt
 CMD [ "uvicorn", "app:app", "--port", "8080", "--host", "0.0.0.0" ]
